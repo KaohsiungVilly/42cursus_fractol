@@ -48,6 +48,25 @@ t_vars	init_burning_ship(void)
 	return (vars);
 }
 
+t_imag	set_cte(char *argv[])
+{
+	t_imag	cte;
+
+	if (argv[2] == NULL)
+		cte = set_imag(0, -0.8);
+	else if (ft_strncmp(argv[2], "1", 100) == 0)
+		cte = set_imag(-0.4, 0.6);
+	else if (ft_strncmp(argv[2], "2", 100) == 0)
+		cte = set_imag(0.285, 0);
+	else if (ft_strncmp(argv[2], "3", 100) == 0)
+		cte = set_imag(0.285, 0.01);
+	else if (ft_strncmp(argv[2], "4", 100) == 0)
+		cte = set_imag(-0.835, -0.232);
+	else
+		cte = set_imag(-0.7269, 0.1889);
+	return (cte);
+}
+
 t_vars	init_julia(char *argv[])
 {
 	t_vars	vars;
@@ -60,11 +79,8 @@ t_vars	init_julia(char *argv[])
 	vars.pos_x = 0;
 	vars.pos_y = 0;
 	vars.zoom = 1;
-	vars.cte.a = -0.8;
-	vars.cte.bi = 0.156;
+	vars.cte = set_cte(argv);
 	vars.type = 0;
-	if (*argv[0] == 'j')
-		return (vars);
 	return (vars);
 }
 

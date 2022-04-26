@@ -20,6 +20,15 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
+t_imag	set_imag(double a, double bi)
+{
+	t_imag	cte;
+
+	cte.a = a;
+	cte.bi = bi;
+	return (cte);
+}
+
 int	ft_color(int color, int c)
 {
 	int		ret[4];

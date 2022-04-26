@@ -30,10 +30,13 @@ all:		${NAME}
 
 clean:
 				@make clean -C ${PATHLIB}
+				@make clean -C ${PATHMLIB}
 				${RM} ${OBJS}
 
 fclean: 	clean
 				@make clean
+				${RM} ${LIBFT}
+				${RM} ${MINILIB}
 				${RM} ${NAME}
 
 re: 		fclean all

@@ -55,16 +55,20 @@ typedef struct s_vars {
 	double	zoom;
 	int		maxi;
 	int		type;
+	int		julia;
 }				t_vars;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 t_vars	pix_to_nbr(t_vars vars);
+t_imag	set_imag(double a, double bi);
 int		color_frac(int i);
 int		color_frac(int i);
 void	paint_pix(int color, t_vars vars);
 void	fractol(t_vars vars);
 int		key_hooks(int keycode, t_vars *vars);
 t_vars	init_mandelbrot(void);
+t_vars	init_julia(char *argv[]);
+t_vars	init_julia2(void);
 t_vars	init_params(char *argv[]);
 int		mouse_hooks(int mousecode, int x, int y, t_vars *vars);
 int		create_trgb(unsigned char t,

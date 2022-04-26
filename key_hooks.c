@@ -20,9 +20,6 @@ int	create_trgb(unsigned char t,
 
 int	key_hooks(int keycode, t_vars *vars)
 {
-	int	random;
-
-	random = (1 + rand()) % 256;
 	if (keycode == 53)
 		exit(0);
 	else if (keycode == 123)
