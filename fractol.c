@@ -6,12 +6,11 @@
 /*   By: pvillena <pvillena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 18:21:46 by pvillena          #+#    #+#             */
-/*   Updated: 2022/04/21 20:00:01 by pvillena         ###   ########.fr       */
+/*   Updated: 2022/04/22 16:52:27 by pvillena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 int	calc_pix(t_vars vars)
 {
@@ -30,11 +29,13 @@ int	calc_pix(t_vars vars)
 	while (++i < vars.maxi && vars.c.a * vars.c.a + vars.c.bi * vars.c.bi < 4)
 	{
 		temp = vars.c.a * vars.c.a - vars.c.bi * vars.c.bi + vars.cte.a;
-		vars.c.bi = 2 * vars.c.a * vars.c.bi + vars.cte.bi;
+		if (vars.type == 1)
+			vars.c.bi = fabs(2 * vars.c.a * vars.c.bi) + vars.cte.bi;
+		else
+			vars.c.bi = 2 * vars.c.a * vars.c.bi + vars.cte.bi;
 		vars.c.a = temp;
 	}
 	return (i);
-	//return (color_frac(i));
 }
 
 void	fractol(t_vars vars)
