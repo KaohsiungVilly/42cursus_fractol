@@ -63,7 +63,7 @@ t_imag	set_cte(char *argv[])
 	else if (ft_strncmp(argv[2], "4", 100) == 0)
 		cte = set_imag(-0.835, -0.232);
 	else
-		cte = set_imag(-0.7269, 0.1889);
+		cte = set_imag(0, -0.8);
 	return (cte);
 }
 
